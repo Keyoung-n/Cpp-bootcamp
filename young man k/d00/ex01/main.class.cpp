@@ -114,7 +114,7 @@ void search() {
   std::cout << "Please enter a index: ";
   std::cin >> buff;
   int index = buff[0] - '0';
-  if (index > 0 && index < 9)
+  if (index > 0 && index < 9 && contacts[index -1].first_name != "")
     contacts[index -1].print();
   else
     std::cout << "Please enter a valid index" << '\n';
