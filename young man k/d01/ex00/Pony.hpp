@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Pony.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: knage <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: knage <knage@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 07:32:34 by knage             #+#    #+#             */
-/*   Updated: 2017/05/23 07:32:36 by knage            ###   ########.fr       */
+/*   Updated: 2017/05/24 09:34:02 by knage            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 class Pony {
 private:
     std::string _name;
-
+    std::string _color;
 public:
-    Pony (std::string name);
+    Pony (std::string name, std::string color);
     ~Pony ();
     void say_hello();
 

@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: knage <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: knage <knage@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 07:32:39 by knage             #+#    #+#             */
-/*   Updated: 2017/05/23 07:32:41 by knage            ###   ########.fr       */
+/*   Updated: 2017/05/24 09:36:50 by knage            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Pony.hpp"
 
 int ponyOnTheHeap() {
-    Pony *Mr_heap = new Pony("Mr Heap");
+    Pony *Mr_heap = new Pony("Mr Heap", "White");
     Mr_heap->say_hello();
     unsigned int address = (uintptr_t) Mr_heap;
 
@@ -21,8 +21,8 @@ int ponyOnTheHeap() {
     return address;
 }
 
-ponyOnTheStack() {
-    Pony	Mr_stack("Mr Stack");
+int ponyOnTheStack() {
+    Pony	Mr_stack("Mr Stack", "Black");
 
     Mr_stack.say_hello();
     return (uintptr_t)&Mr_stack;

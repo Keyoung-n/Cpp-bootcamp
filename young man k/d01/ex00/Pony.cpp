@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Pony.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: knage <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: knage <knage@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 07:32:25 by knage             #+#    #+#             */
-/*   Updated: 2017/05/23 07:32:27 by knage            ###   ########.fr       */
+/*   Updated: 2017/05/24 09:35:22 by knage            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Pony.hpp"
 
-Pony::Pony(std::string name) : _name(name) {
+Pony::Pony(std::string name, std::string color) : _name(name), _color(color) {
     std::cout << this->_name << " was created" << std::endl;
 }
 
