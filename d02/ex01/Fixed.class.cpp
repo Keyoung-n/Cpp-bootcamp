@@ -9,6 +9,14 @@ Fixed::Fixed( void ) {
   std::cout << "Default constructor called" << '\n';
 }
 
+Fixed::Fixed( int const n ) {
+    value = n << bits;
+}
+
+Fixed::Fixed ( float const n ) {
+  value = (int)roundf(n);
+}
+
 Fixed::~Fixed ( void ) {
   std::cout << "Destructor called" << '\n';
 }
