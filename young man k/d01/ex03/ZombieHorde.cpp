@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ZombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: knage <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: knage <knage@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 09:03:23 by knage             #+#    #+#             */
-/*   Updated: 2017/05/23 09:03:24 by knage            ###   ########.fr       */
+/*   Updated: 2017/05/24 09:28:45 by knage            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ ZombieHorde::ZombieHorde(int n) {
     int i = 0;
     _zombies = new Zombie[n];
     while (i != _zombie_count) {
-        _zombies[i].name = random_name();
-        _zombies[i].type = "brains";
+        _zombies[i].setName(random_name());
+        _zombies[i].setType("brains");
         i++;
     }
 };
