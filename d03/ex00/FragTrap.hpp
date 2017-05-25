@@ -17,6 +17,8 @@ private:
 
 public:
   FragTrap (std::string name): Name(name) {};
+  FragTrap ( FragTrap const & dhs );
+  FragTrap& operator=( FragTrap const & dhs );
   ~FragTrap ();
   int rangedAttack(std::string const & target);
   int meleeAttack(std::string const & target);
