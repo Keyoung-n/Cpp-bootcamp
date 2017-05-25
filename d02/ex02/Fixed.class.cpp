@@ -76,6 +76,14 @@ Fixed & Fixed::operator++(int)
 Fixed & Fixed::operator--() {
   return *new Fixed(value--);
 }
+
+Fixed & Fixed::operator--(int)
+{
+  Fixed copy = *this;
+  value--;
+  return *new Fixed(copy.toFloat());
+}
+
 Fixed & Fixed::operator+( Fixed const & rhs ) {
   return *new Fixed(rhs.toFloat() + toFloat());
 }
