@@ -1,8 +1,9 @@
 #include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
 int				main(void)
 {
-	FragTrap	star("Dark star");
+	ScavTrap	star("Dark star");
 	FragTrap	Ultron("Ultron");
 
 	star.rangedAttack("Ultron");
@@ -22,7 +23,9 @@ int				main(void)
 	Ultron.rangedAttack("Dark star");
 	star.takeDamage(Ultron.getRanged_attack_damage());
 
-	star.takeDamage(Ultron.vaulthunter_dot_exe("Dark star"));
+	star.challengeNewcomer(Ultron.getName());
+	star.challengeNewcomer(Ultron.getName());
+
 	star.takeDamage(Ultron.vaulthunter_dot_exe("Dark star"));
 	star.takeDamage(Ultron.vaulthunter_dot_exe("Dark star"));
 	star.takeDamage(Ultron.vaulthunter_dot_exe("Dark star"));

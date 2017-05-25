@@ -1,11 +1,11 @@
-#ifndef FRAGTRAP_HPP
-#define FRAGTRAP_HPP
+#ifndef SCAV_HPP
+#define SCAV_HPP
 #include <string>
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-
-class FragTrap {
+#include <cmath>
+class ScavTrap {
 private:
   std::string Name;
   int Hit;
@@ -18,11 +18,11 @@ private:
   int Armor_damage_reduction;
 
 public:
-  FragTrap(void);
-  FragTrap(std::string name);
-  FragTrap ( FragTrap const & dhs );
-  FragTrap& operator=( FragTrap const & dhs );
-  ~FragTrap ();
+  ScavTrap(void);
+  ScavTrap(std::string name);
+  ScavTrap ( ScavTrap const & dhs );
+  ScavTrap& operator=( ScavTrap const & dhs );
+  ~ScavTrap ();
   int rangedAttack(std::string const & target);
   int meleeAttack(std::string const & target);
   void takeDamage(unsigned int amount);
@@ -45,14 +45,11 @@ public:
   void setMelee_attack_damage(int param);
   void setRanged_attack_damage(int param);
   void setArmor_damage_reduction(int param);
-  int vaulthunter_dot_exe(std::string const &target);
-  void ballBuster(std::string const target);
-  void blasterAttack(std::string const target);
-  void Explosion(std::string const target);
-  void exWife(std::string const target);
-  void lazerAttack(std::string const target);
+  void challengeNewcomer(std::string const &target);
+  void gunFight(std::string const target);
+  void swordFight(std::string const target);
 };
 
-std::ostream & operator<<(std::ostream & o, FragTrap const & rhs);
+std::ostream & operator<<(std::ostream & o, ScavTrap const & rhs);
 
 #endif

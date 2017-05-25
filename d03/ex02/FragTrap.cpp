@@ -19,7 +19,7 @@ void FragTrap::setRanged_attack_damage (int param) { Ranged_attack_damage = para
 void FragTrap::setArmor_damage_reduction (int param) { Armor_damage_reduction = param; };
 
 FragTrap::FragTrap(std::string name): Name(name) {
-  std::cout << "FR4G-TP " << Name << " was Created. :D" << '\n';
+  std::cout << Name << " was Created. :D" << '\n';
   Hit = 100;
   Max_hit_points = 100;
   Max_energy_points = 100;
@@ -40,7 +40,7 @@ int FragTrap::rangedAttack(std::string const & target) {
 }
 
 int FragTrap::meleeAttack(std::string const & target) {
-  std::cout << "FR4G-TP " << Name << " attacks " << target << " at melee, causing " << Melee_attack_damage << " points of damage " << '\n';
+  std::cout << "FR4G-TP " << Name << " attacks " << target << " at range, causing " << Melee_attack_damage << " points of damage " << '\n';
   return Melee_attack_damage;
 }
 
