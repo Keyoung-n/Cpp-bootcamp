@@ -18,6 +18,9 @@ void ClapTrap::setMelee_attack_damage (int param) { Melee_attack_damage = param;
 void ClapTrap::setRanged_attack_damage (int param) { Ranged_attack_damage = param; };
 void ClapTrap::setArmor_damage_reduction (int param) { Armor_damage_reduction = param; };
 
+ClapTrap::ClapTrap (){
+
+}
 ClapTrap::ClapTrap(std::string name, int HP, int EN, int MAXHP, int MAXEP, int ME, int RD, int AR) {
   std::cout << "Creating ClapTrap.." << '\n';
   Hit = HP;
@@ -32,7 +35,7 @@ ClapTrap::ClapTrap(std::string name, int HP, int EN, int MAXHP, int MAXEP, int M
 }
 
 ClapTrap::~ClapTrap () {
-  std::cout << "Destroing ClapTrap..." << '\n';
+  std::cout << "Destroing " << Name << "..." << '\n';
 }
 
 int ClapTrap::rangedAttack(std::string const & target) {
