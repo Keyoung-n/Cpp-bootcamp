@@ -21,6 +21,21 @@ FragTrap::FragTrap ( FragTrap const & dhs ) {
   *this = dhs;
 }
 
+FragTrap & FragTrap::operator=( FragTrap const & dhs ) {
+  if ( this != &dhs ) {
+    FragTrap copy(dhs);
+    setHit(copy.getHit());
+    setMax_hit_points(copy.getMax_hit_points());
+    setMax_energy_points(copy.getMax_energy_points());
+    setEnergy_points(copy.getEnergy_points());
+    setLevel(copy.getLevel());
+    setMelee_attack_damage(copy.getMelee_attack_damage());
+    setRanged_attack_damage(copy.getRanged_attack_damage());
+    setArmor_damage_reduction(copy.getArmor_damage_reduction());
+  }
+  return *this;
+}
+
 void FragTrap::ballBuster(std::string const target) {
   std::cout << "FR4G-TP " << Name << " Attacked " << target << " With a strong attack "<< '\n';
 }

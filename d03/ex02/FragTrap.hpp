@@ -8,7 +8,7 @@ public:
   FragTrap(std::string name);
   ~FragTrap ();
   FragTrap ( FragTrap const & dhs );
-
+  FragTrap & operator=( FragTrap const & dhs );
   int vaulthunter_dot_exe(std::string const &target);
   void ballBuster(std::string const target);
   void blasterAttack(std::string const target);
@@ -16,5 +16,7 @@ public:
   void exWife(std::string const target);
   void lazerAttack(std::string const target);
 };
+
+std::ostream & operator<<(std::ostream & o, FragTrap const & rhs);
 
 #endif

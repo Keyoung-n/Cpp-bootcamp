@@ -19,7 +19,7 @@ void ClapTrap::setRanged_attack_damage (int param) { Ranged_attack_damage = para
 void ClapTrap::setArmor_damage_reduction (int param) { Armor_damage_reduction = param; };
 
 ClapTrap::ClapTrap (){
-
+  std::cout << "Creating ClapTrap.." << '\n';
 }
 ClapTrap::ClapTrap(std::string name, int HP, int EN, int MAXHP, int MAXEP, int ME, int RD, int AR) {
   std::cout << "Creating ClapTrap.." << '\n';
