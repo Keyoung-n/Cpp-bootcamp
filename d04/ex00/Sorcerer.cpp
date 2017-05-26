@@ -45,3 +45,7 @@ void Sorcerer::setName(std::string n) {
 void Sorcerer::setTitle(std::string t) {
   title = t;
 }
+
+void polymorph(Victim const &) const {
+  std::cout << name << " has been turned into a cute little sheep !" << '\n';
+}
