@@ -19,7 +19,7 @@ protected:
 
 public:
   ClapTrap();
-  FragTrap(std::string name);
+  ClapTrap(std::string name);
   ClapTrap(std::string name, int HP, int EN, int MAXHP, int MAXEP, int ME, int RD, int AR);
   ClapTrap ( ClapTrap const & dhs );
   ClapTrap& operator=( ClapTrap const & dhs );
