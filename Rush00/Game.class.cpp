@@ -27,38 +27,43 @@ void Game::start() {
 	struct timeval	start;
 	struct timeval	end;
 	int ch;
-	for (int i = 0; i < 10000; i++) {
+	int game_over = 0;
+	while (game_over == 0) {
 		gettimeofday(&start, NULL);
 		clear();
 		nodelay(stdscr, TRUE);
 		ch = getch();
 		if (ch != -1)
 			inputHandle(ch);
+		game_over = dection.movePlayer(hero);
 		bullets.moveBullets();
 		game.Redraw(hero, &bullets);
 		refresh();
 		gettimeofday(&end, NULL);
 		if (start.tv_usec < end.tv_usec)
 		   start.tv_usec = end.tv_usec;;
-		usleep( 60000 - ( end.tv_usec - start.tv_usec ) );
+		usleep( 60000 - (end.tv_usec - start.tv_usec) );
 	}
 }
 
 void Game::inputHandle(int c) {
+	getmaxyx(stdscr, max_y, max_x);
 	switch(c) {
 		case KEY_UP:
 			if (hero.getY() != 0)
 				hero.decY();
 			break;
 		case KEY_DOWN:
-			hero.incY();
+			if (hero.getY() < max_y)
+				hero.incY();
 			break;
 		case KEY_LEFT:
 			if (hero.getX() != 0)
 				hero.decX();
 			break;
 		case KEY_RIGHT:
-			hero.incX();
+			if (hero.getX() < max_x)
+				hero.incX();
 			break;
 		case 32:
 			bullets.genBullet(hero.getX() + 1, hero.getY());
@@ -68,8 +73,7 @@ void Game::inputHandle(int c) {
 
 Game::~Game ( void ) {
 	endwin();
-	std::cout << hero.getX() << '\n';
-	std::cout << hero.getY() << '\n';
+	std::cout << "Your score was " << hero.getScore() << '\n';
 }
 
 Game & Game::operator=( Game const & copy ) {

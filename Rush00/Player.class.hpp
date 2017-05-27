@@ -1,14 +1,10 @@
 #ifndef Player_HPP
 #define Player_HPP
-#include <cmath>
-#include <ncurses.h>
 #include <iostream>
 
 class Player {
 private:
   int score,
-      max_y,
-      max_x,
       x,
       y;
 

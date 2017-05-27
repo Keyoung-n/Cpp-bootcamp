@@ -34,12 +34,9 @@ Player::Player( void ) {
 }
 
 Player::Player ( int const n ) {
-  int max_y;
-  int max_x;
   score = n;
 
-  getmaxyx(stdscr, max_y, max_x);
-  y = (int)roundf(max_y / 2);
+  y = 30;
   x = 0;
 }
 

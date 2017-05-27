@@ -3,6 +3,7 @@
 #include "BulletEvent.class.hpp"
 #include "Draw.class.hpp"
 #include "Player.class.hpp"
+#include "CollisionDection.class.hpp"
 #include <ctime>
 #include <iostream>
 #include <sys/time.h>
@@ -14,6 +15,9 @@ class Game {
 private:
   Player hero;
   BulletEvent bullets;
+  CollisionDection dection;
+  int   max_y,
+        max_x;
 
 public:
   Game ( void );
