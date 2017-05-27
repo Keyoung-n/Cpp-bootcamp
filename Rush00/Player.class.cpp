@@ -63,11 +63,11 @@ int Player::getY( void ) const {
 void Player::action(int c) {
   switch(c) {
     case KEY_UP:
-      y++;
+      if (y != 0)
+        y--;
 		break;
 		case KEY_DOWN:
-      if (y != 0)
-			   y--;
+			  y++;
 		break;
     case KEY_LEFT:
       if (x != 0)
@@ -75,6 +75,9 @@ void Player::action(int c) {
     break;
     case KEY_RIGHT:
       x++;
+    break;
+    case 32:
+      std::cout << "shoot" << '\n';
     break;
 	}
 }
