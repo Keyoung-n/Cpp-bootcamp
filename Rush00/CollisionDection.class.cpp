@@ -17,10 +17,13 @@ CollisionDection & CollisionDection::operator=( CollisionDection const & copy ) 
   return *this;
 }
 
-int CollisionDection::moveBullets(Bullet *bullets) {
-  for (int i = 0; i < 23; i++) {
-    if (bullets[i].getX() == 0 && bullets[i].getY() == 0)
+int CollisionDection::moveBullets(BulletEvent *bullets) {
+  Bullet *allbullets = bullets->getBullets();
+  for (int i = 0; i < bullets->getBulletCount(); i++) {
+    if (allbullets[i].getX() == 5 && allbullets[i].getY() == 0) {
+      // Deletes Bullet
       return i;
+    }
   }
   return 0;
 }

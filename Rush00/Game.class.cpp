@@ -28,7 +28,7 @@ void Game::start() {
 	struct timeval	end;
 	int ch;
 	int game_over = 0;
-	while (game_over == 0 && score != 100) {
+	while (game_over == 0 && score != 100000) {
 		gettimeofday(&start, NULL);
 		clear();
 		nodelay(stdscr, TRUE);
@@ -43,7 +43,7 @@ void Game::start() {
 		gettimeofday(&end, NULL);
 		if (start.tv_usec < end.tv_usec)
 		   start.tv_usec = end.tv_usec;;
-		usleep( 60000 - (end.tv_usec - start.tv_usec) );
+		usleep( 30000 - (end.tv_usec - start.tv_usec) );
 	}
 }
 

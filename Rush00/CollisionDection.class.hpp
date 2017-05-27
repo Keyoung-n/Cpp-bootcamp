@@ -1,5 +1,6 @@
 #ifndef CollisionDection_HPP
 #define CollisionDection_HPP
+#include "BulletEvent.class.hpp"
 #include "Bullet.class.hpp"
 #include "Player.class.hpp"
 
@@ -10,7 +11,7 @@ private:
 public:
   CollisionDection ( void );
   ~CollisionDection ( void );
-  int moveBullets(Bullet *bullets);
+  int moveBullets(BulletEvent *bullets);
   int movePlayer(Player hero);
   CollisionDection ( CollisionDection const & copy );
   CollisionDection & operator=( CollisionDection const & copy );
