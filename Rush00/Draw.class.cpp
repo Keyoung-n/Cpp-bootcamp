@@ -13,15 +13,11 @@ Draw::~Draw ( void ) {
 
 void Draw::Redraw(Player hero, BulletEvent *bullets) {
   mvprintw(hero.getY(), hero.getX(), ">");
-  std::string s = std::to_string(bullets->getBulletCount());
-  char const *pchar = s.c_str();
-  mvprintw(1, 1, pchar);
-  //Bullet *allbullets = bullets.getBullets();
-  refresh();
-//  std::cout << bullets.getBulletCount() << '\n';
-  // for (int i = 0; i < bullets.getBulletCount(); i++) {
-  //     mvprintw(allbullets[i].getY(), allbullets[i].getX(), "-");
-  // }
+  Bullet *allbullets = bullets->getBullets();
+  for (int i = 0; i < bullets->getBulletCount(); i++) {
+      mvprintw(allbullets[i].getY(), allbullets[i].getX(), "-");
+      allbullets[i].setX(allbullets[i].getX() + 1);
+  }
 }
 
 Draw & Draw::operator=( Draw const & copy ) {

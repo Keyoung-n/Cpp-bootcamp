@@ -29,6 +29,7 @@ void Game::start() {
       ch = getch();
       if (ch != -1)
         inputHandle(ch);
+      bullets.moveBullets();
       game.Redraw(hero, &bullets);
       refresh();
       usleep(30000);

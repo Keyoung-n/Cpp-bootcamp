@@ -28,13 +28,14 @@ BulletEvent & BulletEvent::operator=( BulletEvent const & copy ) {
 }
 
 void BulletEvent::moveBullets() {
-  for (int i = 0; i != bullet_count; i++) {
-    //bullets[bullet_count]->Move();
+  for (int i = 0; i < bullet_count; i++) {
+    bullets[bullet_count].Move();
   }
 }
 
 void BulletEvent::genBullet(int x, int y) {
-//  bullets[bullet_count].setX();
+  bullets[bullet_count].setX(x);
+  bullets[bullet_count].setY(y);
   bullet_count++;
 }
 
