@@ -31,7 +31,9 @@ void Bullet::Move() {
 
 Bullet& Bullet::operator=( Bullet const & copy ) {
   if ( this != &copy ) {
-    //this->setRawBits(copy.getRawBits()
+    Bullet new_bullet(copy);
+    setX(new_bullet.getX());
+    setY(new_bullet.getY());
   }
   return *this;
 }
@@ -40,6 +42,6 @@ Bullet& Bullet::operator=( Bullet const & copy ) {
 std::ostream & operator<<(std::ostream & o, Bullet const & rhs)
 {
     Bullet copy(rhs);
-    // o << rhs.toFloat();
+    o << copy.getY() << copy.getX();
     return o;
 }

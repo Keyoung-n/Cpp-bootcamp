@@ -6,9 +6,11 @@
 
 class Player {
 private:
-  int score;
-  int x;
-  int y;
+  int score,
+      max_y,
+      max_x,
+      x,
+      y;
 
 public:
   Player ( void );

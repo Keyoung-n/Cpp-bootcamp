@@ -44,10 +44,11 @@ Player::Player ( int const n ) {
 }
 
 Player & Player::operator=( Player const & copy ) {
-  if ( this != &copy )
+  if ( this != &copy ) {
     this->setScore(copy.getScore());
     this->setX(copy.getX());
     this->setY(copy.getY());
+  }
   return *this;
 }
 
@@ -59,6 +60,6 @@ Player & Player::operator++() {
 std::ostream & operator<<(std::ostream & o, Player const & rhs)
 {
     Player copy(rhs);
-    // o << rhs.toFloat();
+    o << "This player's score is " << copy.getScore() << " and cords are x = " << copy.getX() << " y = " << copy.getY();
     return o;
 }

@@ -21,8 +21,6 @@ void Draw::Redraw(Player hero, BulletEvent *bullets) {
 }
 
 Draw & Draw::operator=( Draw const & copy ) {
-  if ( this != &copy )
-    std::cout << "hmm" << '\n';
-  //   this->setRawBits(copy.getRawBits());
+  Draw new_draw(copy);
   return *this;
 }

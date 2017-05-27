@@ -20,6 +20,7 @@ public:
   void genBullet(int x, int y);
   Bullet *getBullets();
   int getBulletCount();
+  void setBulletCount(int new_count);
 };
 
 std::ostream & operator<<(std::ostream & o, BulletEvent const & rhs);

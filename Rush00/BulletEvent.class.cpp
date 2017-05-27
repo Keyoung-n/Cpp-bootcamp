@@ -4,6 +4,8 @@ int BulletEvent::getBulletCount() { return bullet_count; }
 
 Bullet *BulletEvent::getBullets() { return bullets; }
 
+void BulletEvent::setBulletCount(int new_count) { bullet_count = new_count; }
+
 BulletEvent::BulletEvent(BulletEvent const & copy) {
   *this = copy;
 }
@@ -17,12 +19,11 @@ BulletEvent::BulletEvent( int const bullets ) {
 }
 
 BulletEvent::~BulletEvent ( void ) {
-  //delete [] bullets;
 }
 
 BulletEvent & BulletEvent::operator=( BulletEvent const & copy ) {
   if ( this != &copy ) {
-    //this->setRawBits(copy.getRawBits()
+    *this = copy;
   }
   return *this;
 }
@@ -42,6 +43,6 @@ void BulletEvent::genBullet(int x, int y) {
 std::ostream & operator<<(std::ostream & o, BulletEvent const & rhs)
 {
     BulletEvent copy(rhs);
-    // o  << copy.getRounds();
+    o  << "Amount of bullets fired is " << copy.getBulletCount();
     return o;
 }

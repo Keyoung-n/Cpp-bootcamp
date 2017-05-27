@@ -1,26 +1,30 @@
 #ifndef Game_HPP
 #define Game_HPP
-#include <ncurses.h>
-#include <unistd.h>
-#include <string>
-#include "Player.class.hpp"
 #include "BulletEvent.class.hpp"
 #include "Draw.class.hpp"
+#include "Player.class.hpp"
+#include <ctime>
+#include <iostream>
+#include <sys/time.h>
+#include <unistd.h>
+#include <ncurses.h>
+#include <string>
 
 class Game {
 private:
   Player hero;
   BulletEvent bullets;
-  int rounds;
 
 public:
   Game ( void );
-  Game ( int const rnd );
   Game ( Game const & copy );
   Game & operator=( Game const & copy );
   ~Game ( void );
   void inputHandle(int c);
-  int getRounds();
+  Player getPlayer();
+  BulletEvent getBullets();
+  void setHero(Player new_player);
+  void setBullets(BulletEvent new_bullets);
   void start();
 };
 
