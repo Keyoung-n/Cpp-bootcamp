@@ -4,24 +4,18 @@
 
 class Player {
 private:
-  int score,
-      x,
-      y;
+int x;
+int y;
 
 public:
   Player ( void );
-  Player ( int const n );
   Player ( Player const & copy );
   Player & operator=( Player const & copy );
-  Player & operator++();
   ~Player ( void );
-  int getScore( void ) const;
-  void setScore( int const value );
   int getX( void ) const;
   void setX( int const value );
   int getY( void ) const;
   void setY( int const value );
-  void action(int c);
   void incX();
   void decX();
   void incY();

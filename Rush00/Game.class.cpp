@@ -28,7 +28,7 @@ void Game::start() {
 	struct timeval	end;
 	int ch;
 	int game_over = 0;
-	while (game_over == 0) {
+	while (game_over == 0 && score != 100) {
 		gettimeofday(&start, NULL);
 		clear();
 		nodelay(stdscr, TRUE);
@@ -39,6 +39,7 @@ void Game::start() {
 		bullets.moveBullets();
 		game.Redraw(hero, &bullets);
 		refresh();
+		score++;
 		gettimeofday(&end, NULL);
 		if (start.tv_usec < end.tv_usec)
 		   start.tv_usec = end.tv_usec;;
@@ -73,7 +74,7 @@ void Game::inputHandle(int c) {
 
 Game::~Game ( void ) {
 	endwin();
-	std::cout << "Your score was " << hero.getScore() << '\n';
+	std::cout << "Your score was " << score << '\n';
 }
 
 Game & Game::operator=( Game const & copy ) {

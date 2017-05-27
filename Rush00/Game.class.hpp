@@ -17,7 +17,8 @@ private:
   BulletEvent bullets;
   CollisionDection dection;
   int   max_y,
-        max_x;
+        max_x,
+        score;
 
 public:
   Game ( void );
