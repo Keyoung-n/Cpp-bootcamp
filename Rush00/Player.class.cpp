@@ -1,5 +1,25 @@
 #include "Player.class.hpp"
 
+int Player::getScore( void ) const {return  score;}
+
+void Player::setScore( int const value ) {score = value;}
+
+void Player::setX( int const value ) {x = value;}
+
+int Player::getX( void ) const {return x;}
+
+void Player::setY(int const value ) {y = value;}
+
+int Player::getY( void ) const {return y;}
+
+void Player::incX() {x++;}
+
+void Player::decX() {x--;}
+
+void Player::incY() {y++;}
+
+void Player::decY() {y--;}
+
 Player::Player(Player const & copy) {
   *this = copy;
 }
@@ -36,51 +56,6 @@ Player & Player::operator++() {
   return *this;
 }
 
-int Player::getScore( void ) const {
-  return  score;
-}
-
-void Player::setScore( int const value ) {
-  score = value;
-}
-
-void Player::setX( int const value ) {
-  x = value;
-}
-
-int Player::getX( void ) const {
-  return x;
-}
-
-void Player::setY(int const value ) {
-  y = value;
-}
-
-int Player::getY( void ) const {
-  return y;
-}
-
-void Player::action(int c) {
-  switch(c) {
-    case KEY_UP:
-      if (y != 0)
-        y--;
-		break;
-		case KEY_DOWN:
-			  y++;
-		break;
-    case KEY_LEFT:
-      if (x != 0)
-        x--;
-    break;
-    case KEY_RIGHT:
-      x++;
-    break;
-    case 32:
-      std::cout << "shoot" << '\n';
-    break;
-	}
-}
 std::ostream & operator<<(std::ostream & o, Player const & rhs)
 {
     Player copy(rhs);

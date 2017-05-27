@@ -24,6 +24,10 @@ public:
   int getY( void ) const;
   void setY( int const value );
   void action(int c);
+  void incX();
+  void decX();
+  void incY();
+  void decY();
 };
 
 std::ostream & operator<<(std::ostream & o, Player const & rhs);
