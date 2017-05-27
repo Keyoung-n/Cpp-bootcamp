@@ -2,6 +2,7 @@
 #define Draw_HPP
 #include <ncurses.h>
 #include <iostream>
+#include <string>
 #include "Player.class.hpp"
 #include "BulletEvent.class.hpp"
 
@@ -10,7 +11,7 @@ public:
   Draw ( void );
   Draw ( int const n );
   Draw ( Draw const & copy );
-  void Redraw(Player hero, BulletEvent bullets);
+  void Redraw(Player hero, BulletEvent *bullets);
   Draw & operator=( Draw const & copy );
   ~Draw ( void );
 };

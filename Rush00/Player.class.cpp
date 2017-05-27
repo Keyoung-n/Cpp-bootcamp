@@ -30,7 +30,7 @@ Player::~Player ( void ) {
 Player::Player( void ) {
   score = 0;
   y = 30;
-  x = 0;
+  x = 10;
 }
 
 Player::Player ( int const n ) {

@@ -17,6 +17,7 @@ BulletEvent::BulletEvent( int const bullets ) {
 }
 
 BulletEvent::~BulletEvent ( void ) {
+  //delete [] bullets;
 }
 
 BulletEvent & BulletEvent::operator=( BulletEvent const & copy ) {
@@ -28,16 +29,12 @@ BulletEvent & BulletEvent::operator=( BulletEvent const & copy ) {
 
 void BulletEvent::moveBullets() {
   for (int i = 0; i != bullet_count; i++) {
-    bullets[bullet_count].Move();
+    //bullets[bullet_count]->Move();
   }
 }
 
 void BulletEvent::genBullet(int x, int y) {
-  std::string s = std::to_string(bullet_count);
-  char const *pchar = s.c_str();
-  mvprintw(10, 10, pchar);
-  // bullets[bullet_count].setX(x);
-  // bullets[bullet_count].setY(y);
+//  bullets[bullet_count].setX();
   bullet_count++;
 }
 

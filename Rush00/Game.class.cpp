@@ -11,15 +11,12 @@ Game::Game( void ) {
   keypad(stdscr, TRUE);
   rounds = 200;
   BulletEvent allbullets;
-  bullets = &allbullets;
+  bullets = allbullets;
 }
 
 void Game::start() {
   Draw game;
-  std::string s = std::to_string(bullets->getBulletCount());
-  char const *pchar = s.c_str();
-  mvprintw(0, 0, pchar);
-  game.Redraw(hero, *bullets);
+  game.Redraw(hero, &bullets);
   int ch;
   for (int i = 0; i < 10000; i++) {
       ch = 0;
@@ -32,8 +29,7 @@ void Game::start() {
       ch = getch();
       if (ch != -1)
         inputHandle(ch);
-      game.Redraw(hero, *bullets);
-      bullets->genBullet(1, 1);
+      game.Redraw(hero, &bullets);
       refresh();
       usleep(30000);
   }
@@ -57,7 +53,7 @@ void Game::inputHandle(int c) {
       hero.incX();
     break;
     case 32:
-      bullets->genBullet(hero.getX() + 1, hero.getY());
+      bullets.genBullet(hero.getX() + 1, hero.getY());
     break;
 	}
 }

@@ -7,7 +7,7 @@
 
 class BulletEvent {
 private:
-  Bullet *bullets;
+  Bullet bullets[200];
   int bullet_count;
 
 public:

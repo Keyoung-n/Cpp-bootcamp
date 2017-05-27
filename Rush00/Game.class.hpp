@@ -10,7 +10,7 @@
 class Game {
 private:
   Player hero;
-  BulletEvent *bullets;
+  BulletEvent bullets;
   int rounds;
 
 public:
