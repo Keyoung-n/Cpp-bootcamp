@@ -10,7 +10,12 @@ all:
 	@clang++ $(FLAGS) $(SRC) -lncurses -o $(NAME)
 
 clean:
-	rm -rf $(FILES)
-	
+	@rm -rf $(OFILES)
+
 fclean: clean
-	rm -rf ft_retro
+	@rm -rf $(NAME)
+
+re: fclean all
+
+run: re
+	./$(NAME)
