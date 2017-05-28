@@ -28,7 +28,7 @@ void Game::start() {
 	struct timeval	end;
 	int ch;
 	int game_over = 0;
-	while (game_over == 0 && score != 100000) {
+	while (game_over == 0 && score != 100) {
 		gettimeofday(&start, NULL);
 		clear();
 		nodelay(stdscr, TRUE);
@@ -36,6 +36,7 @@ void Game::start() {
 		if (ch != -1)
 			inputHandle(ch);
 		game_over = dection.movePlayer(hero);
+		dection.moveBullets(&bullets);
 		bullets.moveBullets();
 		game.Redraw(hero, &bullets);
 		refresh();
@@ -43,19 +44,18 @@ void Game::start() {
 		gettimeofday(&end, NULL);
 		if (start.tv_usec < end.tv_usec)
 		   start.tv_usec = end.tv_usec;;
-		usleep( 30000 - (end.tv_usec - start.tv_usec) );
+		usleep( 40000 - (end.tv_usec - start.tv_usec) );
 	}
 }
 
 void Game::inputHandle(int c) {
-	getmaxyx(stdscr, max_y, max_x);
 	switch(c) {
 		case KEY_UP:
 			if (hero.getY() != 0)
 				hero.decY();
 			break;
 		case KEY_DOWN:
-			if (hero.getY() < max_y)
+			if (hero.getY() != 62)
 				hero.incY();
 			break;
 		case KEY_LEFT:
@@ -63,7 +63,7 @@ void Game::inputHandle(int c) {
 				hero.decX();
 			break;
 		case KEY_RIGHT:
-			if (hero.getX() < max_x)
+			if (hero.getX() < 271)
 				hero.incX();
 			break;
 		case 32:

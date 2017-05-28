@@ -40,6 +40,14 @@ void BulletEvent::genBullet(int x, int y) {
   bullet_count++;
 }
 
+void BulletEvent::desBullet(int pos) {
+  bullet_count--;
+  for (int i = pos; i < bullet_count; i++) {
+    bullets[i].setX(bullets[i + 1].getX());
+    bullets[i].setY(bullets[i + 1].getY());
+  }
+}
+
 std::ostream & operator<<(std::ostream & o, BulletEvent const & rhs)
 {
     BulletEvent copy(rhs);

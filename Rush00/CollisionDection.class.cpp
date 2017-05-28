@@ -20,9 +20,11 @@ CollisionDection & CollisionDection::operator=( CollisionDection const & copy ) 
 int CollisionDection::moveBullets(BulletEvent *bullets) {
   Bullet *allbullets = bullets->getBullets();
   for (int i = 0; i < bullets->getBulletCount(); i++) {
-    if (allbullets[i].getX() == 5 && allbullets[i].getY() == 0) {
-      // Deletes Bullet
-      return i;
+    if (allbullets[i].getX() == 20 && allbullets[i].getY() == 30) {
+       bullets->desBullet(i);
+    }
+    else if (allbullets[i].getX() ==  271) {
+      bullets->desBullet(i);
     }
   }
   return 0;

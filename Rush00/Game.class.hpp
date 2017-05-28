@@ -16,9 +16,7 @@ private:
   Player hero;
   BulletEvent bullets;
   CollisionDection dection;
-  int   max_y,
-        max_x,
-        score;
+  int score;
 
 public:
   Game ( void );

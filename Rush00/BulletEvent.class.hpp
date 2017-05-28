@@ -18,6 +18,7 @@ public:
   ~BulletEvent ( void );
   void moveBullets();
   void genBullet(int x, int y);
+  void desBullet(int pos);
   Bullet *getBullets();
   int getBulletCount();
   void setBulletCount(int new_count);
