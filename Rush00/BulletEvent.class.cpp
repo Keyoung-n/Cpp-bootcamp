@@ -30,7 +30,7 @@ BulletEvent & BulletEvent::operator=( BulletEvent const & copy ) {
 
 void BulletEvent::moveBullets() {
   for (int i = 0; i < bullet_count; i++) {
-    bullets[bullet_count].Move();
+    bullets[i].Move();
   }
 }
 

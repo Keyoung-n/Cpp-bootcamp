@@ -3,6 +3,7 @@
 #include "BulletEvent.class.hpp"
 #include "Bullet.class.hpp"
 #include "Player.class.hpp"
+#include "EnemyEvent.class.hpp"
 
 class CollisionDection {
 private:
@@ -11,8 +12,8 @@ private:
 public:
   CollisionDection ( void );
   ~CollisionDection ( void );
-  int moveBullets(BulletEvent *bullets);
-  int movePlayer(Player hero);
+  int moveBullets(BulletEvent *bullets, EnemyEvent *enemies);
+  int movePlayer(Player hero, EnemyEvent *enemies);
   CollisionDection ( CollisionDection const & copy );
   CollisionDection & operator=( CollisionDection const & copy );
 };

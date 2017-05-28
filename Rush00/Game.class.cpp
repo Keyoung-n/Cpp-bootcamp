@@ -19,31 +19,40 @@ Game::Game( void ) {
 	keypad(stdscr, TRUE);
 	// BulletEvent allbullets;
 	// bullets = allbullets;
+//	EnemyEvent allenemies;
+//	enemies = allenemies;
 }
 
 void Game::start() {
 	Draw game;
-	game.Redraw(hero, &bullets);
+	enemies.setEnemyCount(0);
+	game.Redraw(hero, &bullets, &enemies);
 	struct timeval	start;
 	struct timeval	end;
 	int ch;
 	int game_over = 0;
 	score = 0;
-	while (game_over == 0 && score != 5000) {
+	int loop = 0;;
+	while (game_over == 0 && score != 1000) {
 		gettimeofday(&start, NULL);
 		clear();
 		nodelay(stdscr, TRUE);
 		ch = getch();
 		if (ch != -1)
 			inputHandle(ch);
-		game_over = dection.movePlayer(hero);
-		dection.moveBullets(&bullets);
+		score += dection.moveBullets(&bullets, &enemies);
 		bullets.moveBullets();
-		game.Redraw(hero, &bullets);
+		score += dection.moveBullets(&bullets, &enemies);
+		enemies.moveEnemies();
+		if (loop % 25 == 0)
+			enemies.genEnemy();
+		game.Redraw(hero, &bullets, &enemies);
 		refresh();
 		score++;
 		gettimeofday(&end, NULL);
-		usleep( 40000 - (end.tv_usec - start.tv_usec) );
+		loop++;
+		game_over = dection.movePlayer(hero, &enemies);
+		usleep( 60000 - (end.tv_usec - start.tv_usec) );
 	}
 }
 
@@ -62,7 +71,7 @@ void Game::inputHandle(int c) {
 				hero.decX();
 			break;
 		case KEY_RIGHT:
-			if (hero.getX() < 271)
+			if (hero.getX() != 271)
 				hero.incX();
 			break;
 		case 32:

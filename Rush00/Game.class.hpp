@@ -4,6 +4,7 @@
 #include "Draw.class.hpp"
 #include "Player.class.hpp"
 #include "CollisionDection.class.hpp"
+#include "EnemyEvent.class.hpp"
 #include <ctime>
 #include <iostream>
 #include <sys/time.h>
@@ -15,6 +16,7 @@ class Game {
 private:
   Player hero;
   BulletEvent bullets;
+	EnemyEvent enemies;
   CollisionDection dection;
   int score;
 

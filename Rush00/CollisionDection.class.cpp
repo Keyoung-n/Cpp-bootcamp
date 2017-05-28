@@ -17,22 +17,29 @@ CollisionDection & CollisionDection::operator=( CollisionDection const & copy ) 
   return *this;
 }
 
-int CollisionDection::moveBullets(BulletEvent *bullets) {
+int CollisionDection::moveBullets(BulletEvent *bullets, EnemyEvent *enemies) {
   Bullet *allbullets = bullets->getBullets();
-  for (int i = 0; i < bullets->getBulletCount(); i++) {
-    if (allbullets[i].getX() == 20 && allbullets[i].getY() == 30) {
-       bullets->desBullet(i);
-    }
-    else if (allbullets[i].getX() ==  271) {
-      bullets->desBullet(i);
-    }
-  }
+	Enemy *allenemies = enemies->getEnemies();
+	for (int j = 0; j < enemies->getEnemyCount(); j++) {
+		for (int i = 0; i < bullets->getBulletCount(); i++) {
+			if (allenemies[j].getY() == allbullets[i].getY() && allenemies[j].getX() == allbullets[i].getX()) {
+				bullets->desBullet(i);
+				enemies->desEnemy(j);
+			}
+			else if (allbullets[i].getX() ==  271) {
+				bullets->desBullet(i);
+			}
+		}
+	}
   return 0;
 }
 
-int CollisionDection::movePlayer(Player hero) {
-  if (hero.getX() == 0 && hero.getY() == 0)
-    return 1;
+int CollisionDection::movePlayer(Player hero, EnemyEvent *enemies) {
+  Enemy *allenemies = enemies->getEnemies();
+  for (int i = 0; i < enemies->getEnemyCount(); i++) {
+    if ( hero.getX() == allenemies[i].getX())
+      return 1;
+  }
   return 0;
 }
 
