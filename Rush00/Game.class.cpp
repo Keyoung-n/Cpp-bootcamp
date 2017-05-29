@@ -82,7 +82,7 @@ void Game::inputHandle(int c) {
 
 Game::~Game ( void ) {
 	endwin();
-	if (score == 5000)
+	if (score == 1000)
 		std::cout << "Yay you won!" << '\n';
 	else
 		std::cout << "Your score was " << score << '\n';
