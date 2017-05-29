@@ -8,9 +8,9 @@ Bureaucrat::Bureaucrat( void ) {
 }
 
 Bureaucrat::Bureaucrat ( std::string const   n, int i ) : name(n) {
-  if (i > 0 )
+  if (i < 1 )
     throw GradeTooHighException();
-  else if ( i < 150 )
+  else if ( i > 150 )
     throw GradeTooLowException();
     grade = i;
 }
@@ -19,21 +19,20 @@ Bureaucrat::Bureaucrat ( std::string const   n, int i ) : name(n) {
 }
 
  Bureaucrat &  Bureaucrat::operator=(  Bureaucrat & copy ) {
-  if ( this != &copy ) {
+  if ( this != &copy )
     this->setGrade(copy.getGrade());
-  }
   return *this;
 }
 
 void Bureaucrat::incrementGrade (void) {
   grade--;
-  if (grade < 0)
+  if (grade < 1)
     throw GradeTooHighException();
 }
 
 void Bureaucrat::decrementGrade (void) {
   grade++;
-  if( grade < 150 )
+  if( grade > 150 )
     throw GradeTooLowException();
 }
 
